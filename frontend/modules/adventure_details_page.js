@@ -43,6 +43,8 @@ function addAdventureDetailsToDOM(adventure) {
   // TODO: MODULE_ADVENTURE_DETAILS
   // 1. Add the details of the adventure to the HTML DOM
  //console.log(adventure);
+
+
   //heading 
   const heading = document.getElementById("adventure-name");
   heading.innerHTML = adventure.name;
@@ -65,6 +67,8 @@ function addAdventureDetailsToDOM(adventure) {
   const content = document.getElementById("adventure-content");
   //console.log(content);
   content.innerHTML= adventure.content;
+
+  
 
 
 }
@@ -146,6 +150,32 @@ function addBootstrapPhotoGallery(images) {
 function conditionalRenderingOfReservationPanel(adventure) {
   // TODO: MODULE_RESERVATIONS
   // 1. If the adventure is already reserved, display the sold-out message.
+  //console.log(adventure);
+  
+  const perPersonCost = document.getElementById("reservation-person-cost");
+  perPersonCost.innerHTML=adventure.costPerHead;
+
+  const IsAvailable = adventure.available;
+  //console.log(IsAvailable);
+  if(IsAvailable){
+    const reservationDisplay =document.getElementById("reservation-panel-available");
+    reservationDisplay.style.display = "block";
+
+    const reservationSoldDisplay =document.getElementById("reservation-panel-sold-out");
+    reservationSoldDisplay.style.display = "none";
+
+    document.getElementById("reservation-person-cost").innerHTML=adventure.costPerHead;
+
+  }else{
+
+    const reservationDisplay =document.getElementById("reservation-panel-available");
+    reservationDisplay.style.display = "none";
+
+    const reservationSoldDisplay =document.getElementById("reservation-panel-sold-out");
+    reservationSoldDisplay.style.display = "block";
+    
+  }
+  
 
 }
 
@@ -153,6 +183,12 @@ function conditionalRenderingOfReservationPanel(adventure) {
 function calculateReservationCostAndUpdateDOM(adventure, persons) {
   // TODO: MODULE_RESERVATIONS
   // 1. Calculate the cost based on number of persons and update the reservation-cost field
+  const costContainer = document.getElementById("reservation-cost");
+  costContainer.innerHTML = adventure.costPerHead * persons;
+
+  
+
+  //console.log("perhead",adventure);
 
 }
 
@@ -161,12 +197,71 @@ function captureFormSubmit(adventure) {
   // TODO: MODULE_RESERVATIONS
   // 1. Capture the query details and make a POST API call using fetch() to make the reservation
   // 2. If the reservation is successful, show an alert with "Success!" and refresh the page. If the reservation fails, just show an alert with "Failed!".
-}
+    const reservationForm = document.getElementById('myForm'); // Replace 'reservation-form' with the actual ID of your form
+    
+    // 2. Add an event listener for the form submission
+    reservationForm.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent the default form submission behavior
+      
+      // const formData = new FormData(reservationForm);
+      const formData = new FormData(document.getElementById('myForm'));
+
+      // for (const [fieldName, fieldValue] of formData.entries()) {
+      //   console.log(`Field Name: ${fieldName}, Field Value: ${fieldValue}`);
+      // }
+
+      // 4. Convert the form data to a JSON object
+      const reservationData={};
+
+      formData.forEach((value, key) => {
+        reservationData[key] = value;
+      });
+      reservationData['adventure'] = adventure.id;
+    
+
+      
+      // 5. Convert the JSON object to a JSON string
+      const jsonData = JSON.stringify(reservationData);
+      console.log(jsonData);
+      
+      // 6. Make a POST API call using fetch() to make the reservation
+      try {
+        const response = await fetch('http://127.0.0.1:8082/reservations/new', {
+          method: 'POST',
+          body: jsonData, // Send the JSON data as the request body
+          headers: {
+            'Content-Type': 'application/json', // Set the content type to JSON
+          },
+        });
+        
+        if (response.ok) {
+          // 7. If the reservation is successful, show an alert with "Success!" and refresh the page
+          alert('Reservation successful!');
+          window.location.reload(); // Refresh the page
+        } else {
+          // 8. If the reservation fails, show an alert with "Failed!"
+          alert('Reservation failed!');
+        }
+      } catch (error) {
+        console.error('Error making reservation:', error);
+        // Handle errors, e.g., show an error message
+        alert('An error occurred while making the reservation.');
+      }
+    });
+  }
+  
 
 //Implementation of success banner after reservation
 function showBannerIfAlreadyReserved(adventure) {
   // TODO: MODULE_RESERVATIONS
   // 1. If user has already reserved this adventure, show the reserved-banner, else don't
+  if(adventure.reserved){
+    const reservedBanner = document.getElementById("reserved-banner");
+    reservedBanner.style.display="block";
+  }else{
+    const reservedBanner = document.getElementById("reserved-banner");
+    reservedBanner.style.display="none";
+  }
 
 }
 

@@ -172,6 +172,7 @@ function saveFiltersToLocalStorage(filters) {
 function getFiltersFromLocalStorage() {
   // TODO: MODULE_FILTERS
   // 1. Get the filters from localStorage and return String read as an object
+  
 
   return JSON.parse(localStorage.getItem("filters"));
 }
