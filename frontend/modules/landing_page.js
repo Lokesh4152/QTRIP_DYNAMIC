@@ -24,7 +24,7 @@ async function fetchCities() {
 // ../../backend/db.json
 
 
-  const apiUrl = "http://127.0.0.1:8082/cities";
+  const apiUrl = "https://qtrip-dynamic-nr4v.onrender.com/cities";
   try{
     const response =await fetch(apiUrl);
     if(!response.ok){
@@ -61,7 +61,7 @@ function addCityToDOM(id, city, description, image) {
   <div class="city-card bg-dark rounded overflow-hidden position-relative" id="${id}">
       <img src="${image}" alt="${city}" class="img-fluid w-100 img-fixed-height">
       <div class="position-absolute bottom-0 start-0 end-0 text-white text-center p-2 ">
-          <h3 class="d-inline-block mb-0">${city}u</h3> <div>${description}</div>
+          <h3 class="d-inline-block mb-0">${city}</h3> <div>${description}</div>
       </div>
   </div>
 </a>

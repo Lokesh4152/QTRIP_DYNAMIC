@@ -19,7 +19,7 @@ async function fetchAdventureDetails(adventureId) {
   // 1. Fetch the details of the adventure by making an API call
   //console.log(adventureId);
   //const apiUrl =`http://13.232.186.211:8082/adventures/detail?adventure=2447910730`
-  const apiUrl =`http://127.0.0.1:8082/adventures/detail?adventure=${adventureId}`
+  const apiUrl =`https://qtrip-dynamic-nr4v.onrender.com/adventures/detail?adventure=${adventureId}`
   try{
     const response =await fetch(apiUrl);
     if(!response.ok){
@@ -226,7 +226,7 @@ function captureFormSubmit(adventure) {
       
       // 6. Make a POST API call using fetch() to make the reservation
       try {
-        const response = await fetch('http://127.0.0.1:8082/reservations/new', {
+        const response = await fetch('https://qtrip-dynamic-nr4v.onrender.com/reservations/new', {
           method: 'POST',
           body: jsonData, // Send the JSON data as the request body
           headers: {

@@ -5,7 +5,7 @@ async function fetchReservations() {
   // TODO: MODULE_RESERVATIONS
   // 1. Fetch Reservations by invoking the REST API and return them
 
-  const apiUrl =`http://127.0.0.1:8082/reservations`
+  const apiUrl =`https://qtrip-dynamic-nr4v.onrender.com/reservations`
   try{
     const response =await fetch(apiUrl);
     if(!response.ok){

@@ -18,7 +18,7 @@ function getCityFromURL(search) {
 async function fetchAdventures(city) {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
-  const apiUrl=`http://127.0.0.1:8082/adventures?city=${city}`
+  const apiUrl=`https://qtrip-dynamic-nr4v.onrender.com/adventures?city=${city}`
   try{
       const response =await fetch(apiUrl);
       if(!response.ok){
