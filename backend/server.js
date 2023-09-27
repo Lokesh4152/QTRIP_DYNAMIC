@@ -234,6 +234,7 @@ app.post("/adventures/new", (req, res) => {
     .write();
 
   res.json({ success: true, ...adventuresData });
+  
 });
 
 app.listen(process.env.PORT || PORT, () => {
