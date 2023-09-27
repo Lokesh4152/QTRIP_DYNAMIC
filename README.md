@@ -55,12 +55,12 @@ The Reservations page allows users to view all their reservations made through Q
 
 ## Live link to pages
 
-![Adventure Details Page](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/detail/?adventure=2447910730)
+[Adventure Details Page](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/detail/?adventure=2447910730)
 
-![Image Carousel](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/detail/?adventure=2447910730)
-![Reservations Page](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/reservations/)
-![Adventures Page](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/?city=bengaluru)
-![Landing Page](https://qtripdynamicfrontend-16.netlify.app/)
+[Image Carousel](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/detail/?adventure=2447910730)
+[Reservations Page](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/reservations/)
+[Adventures Page](https://qtripdynamicfrontend-16.netlify.app/pages/adventures/?city=bengaluru)
+[Landing Page](https://qtripdynamicfrontend-16.netlify.app/)
 
 ## Getting Started
 
