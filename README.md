@@ -67,9 +67,3 @@ The Reservations page allows users to view all their reservations made through Q
 1. Clone the project repository.
 2. Follow the deployment instructions to set up the frontend and backend.
 3. Explore the various features of the QTrip website.
-
-
-
----
-
-Feel free to customize this template with specific links, images, and additional information relevant to your project. Providing clear documentation in your README file will help users and contributors understand your project and its functionalities.
